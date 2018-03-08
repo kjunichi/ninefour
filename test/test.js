@@ -27,13 +27,13 @@ describe('Connect', () => {
             };
             https.get(options, (res) => {
                 let html="";
-                res.on('data', function (chunk) {
+                res.on('data', (chunk) => {
                     //console.log(chunk.toString());
-                    html += data;
+                    html += chunk;
                 });
                 res.on('end', ()=>{
                     assert.isAbove(-1,html.length);
-                })
+                });
             })
 
         });
